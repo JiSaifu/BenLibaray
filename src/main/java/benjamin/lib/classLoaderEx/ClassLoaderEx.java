@@ -1,8 +1,10 @@
 package benjamin.lib.classLoaderEx;
 
-public class ClassLoaderEx
-{
-    public static void main(String[] args) {
+import benjamin.lib.AbstractEx;
+
+public class ClassLoaderEx extends AbstractEx {
+    @Override
+    public void doEx() {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         // AppClassLoader负责装载Classpath路径下的jar包，它是ClassLoader的子类
         System.out.println("current loader:" + loader);
