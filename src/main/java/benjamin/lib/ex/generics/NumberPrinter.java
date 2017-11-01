@@ -1,4 +1,4 @@
-package benjamin.lib.genericsEx;
+package benjamin.lib.ex.generics;
 
 import java.util.Collection;
 

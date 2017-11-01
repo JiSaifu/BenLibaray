@@ -1,4 +1,6 @@
-package benjamin.lib.collectionEx;
+package benjamin.lib.ex.collection;
+
+import benjamin.lib.ex.AbstractEx;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,16 +8,7 @@ import java.util.Iterator;
 /**
  * Collection Test
  */
-final class CollectionEx {
-
-    public static void main(String[] args) {
-
-        testIterator();
-
-        testFormater();
-
-        System.exit(0);
-    }
+public final class CollectionEx extends AbstractEx {
 
     private static void testIterator() {
         ArrayList<String> animal = new ArrayList<>();
@@ -36,5 +29,11 @@ final class CollectionEx {
     private static void testFormater() {
         double testDbl = 1234567.1284567;
         System.out.println(String.format("%.2f", testDbl));
+    }
+
+    @Override
+    public void doEx() {
+        testIterator();
+        testFormater();
     }
 }

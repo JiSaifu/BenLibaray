@@ -1,4 +1,4 @@
-package benjamin.lib.reflectionEx;
+package benjamin.lib.ex.reflection;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +19,10 @@ public class Plane {
 
 
     public Plane() {}
+
+    public Plane(String brand) {
+        this.brand = brand;
+    }
 
     public void introduce() {
         System.out.println("Brand:" + this.getBrand() +

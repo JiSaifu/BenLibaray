@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                http://www.springframework.org/schema/aop
+                http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+    <bean id="car" class="benjamin.lib.ex.spring.ioc.Car">
+        <constructor-arg index="0" type="java.lang.String">
+            <value>&lt;Mini&gt;</value>
+        </constructor-arg>
+        <constructor-arg index="1" type="java.lang.String">
+            <value><![CDATA[Black&White]]></value>
+        </constructor-arg>
+        <!-- 简化前
+        <constructor-arg index="2" type="int">
+            <value>500</value>
+        </constructor-arg>
+        ↓简化后
+        -->
+        <constructor-arg index="2" type="int" value="500" />
+    </bean>
+
+    <bean id="boss" class="benjamin.lib.ex.spring.ioc.Boss">
+        <property name="car1">
+            <ref local="car" />
+            <!-- <ref parent="car" /> -->
+            <!-- <ref bean="car" /> -->
+        </property>
+        <!--
+        <property name="car2">
+            <bean class="benjamin.lib.ex.spring.ioc.Car">
+                <property name="brand">
+                    <value>Toyota</value>
+                </property>
+                <property name="color"><null /></property>
+            </bean>
+        </property>
+        -->
+        <property name="car2">
+            <bean class="benjamin.lib.ex.spring.ioc.Car" parent="pCar">
+                <property name="gear">
+                    <set merge="true">
+                        <value>1</value>
+                        <value>2</value>
+                    </set>
+                </property>
+            </bean>
+        </property>
+        <property name="plane">
+            <bean class="benjamin.lib.ex.spring.ioc.Plane" />
+        </property>
+        <property name="plane.brand" value="Honda" />
+
+        <property name="favorites">
+            <list>
+                <value>Race</value>
+                <value>Golf</value>
+            </list>
+        </property>
+
+        <property name="jobs">
+            <map>
+                <entry>
+                    <key><value>AM</value></key>
+                    <value>Meeting</value>
+                </entry>
+                <entry>
+                    <key><value>PM</value></key>
+                    <value>Coding</value>
+                </entry>
+            </map>
+        </property>
+        
+        <property name="mails">
+            <props>
+                <prop key="jobMail">aaa@bbb.com</prop>
+                <prop key="lifeMail">ccc@ddd.com</prop>
+            </props>
+        </property>
+    </bean>
+    <util:list id="favoriteList1" list-class="java.util.ArrayList">
+        <value>Test</value>
+        <value>Coding</value>
+    </util:list>
+    <!-- 采用p命名空间之后 -->
+    <bean id="carP1" class="benjamin.lib.ex.spring.ioc.Car"
+          p:brand="QQ"
+          p:maxSpeed="120"
+          p:color="Green&amp;Red" scope="prototype"/>
+    <bean id="boss2" class="benjamin.lib.ex.spring.ioc.Boss"
+        p:car1-ref="carP1" />
+
+    <bean id="boss3" class="benjamin.lib.ex.spring.ioc.Boss"
+          p:car1="BMW,200" />
+</beans>

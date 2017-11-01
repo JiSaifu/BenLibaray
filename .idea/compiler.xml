@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="BenLibrary" />
         <module name="JLibarary" />
         <module name="libarary" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="BenLibrary" target="1.7" />
       <module name="JLibarary" target="1.7" />
       <module name="libarary" target="1.7" />
     </bytecodeTargetLevel>

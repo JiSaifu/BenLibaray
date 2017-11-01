@@ -1,4 +1,6 @@
-package benjamin.lib.genericsEx;
+package benjamin.lib.ex.generics;
+
+import benjamin.lib.ex.AbstractEx;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +8,7 @@ import java.util.List;
 /**
  *
  */
-public class GenericsEx {
+public class GenericsEx extends AbstractEx {
     public static <T extends Object> void out(T... args) {
         for (T t : args) {
             System.out.println(t);
@@ -17,6 +19,11 @@ public class GenericsEx {
         for (T t : args) {
             System.out.println(t);
         }
+    }
+
+    @Override
+    public void doEx() {
+
     }
 
     public static void main(String[] args) {

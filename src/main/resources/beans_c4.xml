@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="car" class="benjamin.lib.ex.spring.ioc.Car">
+        <constructor-arg index="0" type="java.lang.String">
+            <value>&lt;BMW&gt;</value>
+        </constructor-arg>
+        <constructor-arg index="1" type="java.lang.String">
+            <value><![CDATA[Red&White]]></value>
+        </constructor-arg>
+        <constructor-arg index="2" type="int">
+            <value>500</value>
+        </constructor-arg>
+
+        <property name="gear">
+            <set>
+                <value>B</value>
+                <value>N</value>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="pCar" class="benjamin.lib.ex.spring.ioc.Car" abstract="true">
+        <constructor-arg index="0" type="java.lang.String">
+            <value>&lt;BMW&gt;</value>
+        </constructor-arg>
+        <constructor-arg index="1" type="java.lang.String">
+            <value><![CDATA[Red&White]]></value>
+        </constructor-arg>
+        <constructor-arg index="2" type="int">
+            <value>500</value>
+        </constructor-arg>
+
+        <property name="gear">
+            <set>
+                <value>B</value>
+                <value>N</value>
+            </set>
+        </property>
+    </bean>
+</beans>
