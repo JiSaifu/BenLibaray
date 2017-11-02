@@ -1,6 +1,5 @@
 package benjamin.lib.ex.spring.ioc;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.*;
