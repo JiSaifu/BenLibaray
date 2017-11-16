@@ -32,9 +32,9 @@ As Grace Hopper said:
     * Item2-2
 
 ## Links
-hhtp://github.com - automatic!
+http://github.com - automatic!
 
-[github](hhtp://github.com)
+[github](http://github.com)
 
 ## BACKSLASH ESCAPES
 Markdown allows you to use backslash escapes to generate literal characters which
